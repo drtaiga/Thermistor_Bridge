@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Thermistor_Circuit)(type KiCad)(uri ${KIPRJMOD}/Thermistor_Circuit.pretty)(options "")(descr ""))
+)
