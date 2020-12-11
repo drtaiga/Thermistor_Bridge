@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
 from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
 
-from scipy.optimize import fsolve
+#import scipy.optimize as fsolve
+from scipy.optimize import fsolve 
+import scipy.optimize as opt
 
 #---------------------------------
 #-- Voltage divider schematics
@@ -223,7 +225,7 @@ def div_plot(R0):
     out_tg=np.clip(div_tg(temp_K, V_in, R0, B, R25, T25),0,V_in)
     out_tp=np.clip(div_tp(temp_K, V_in, R0, B, R25, T25),0,V_in)
     
-    t_infl = fsolve(f_inflection, 280., args=R0)
+    t_infl = opt.fsolve(f_inflection, 280., args=R0)
     
     slope_tg=ddt_div_tg(t_infl, V_in, R0, B, R25, T25)
     slope_tp=ddt_div_tp(t_infl, V_in, R0, B, R25, T25)
@@ -287,7 +289,7 @@ def br_plot(R0, RHO):
 
 
     
-    t_infl = fsolve(f_inflection, 280., args=R0)
+    t_infl = opt.fsolve(f_inflection, 280., args=R0)
     
     slope_tg=-ddt_div_tg(t_infl, V_in, R0, B, R25, T25)
     slope_tp=-ddt_div_tp(t_infl, V_in, R0, B, R25, T25)
